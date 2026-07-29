@@ -23,128 +23,160 @@ print("=> ")
 println("Hello, World!\n")
 
 # Use short-circuit evaluations like && or ||
-output = (3 < 2) || (2 < 3)
-println("(3 < 2) || (2 < 3))")
-println("=> "* string(output) * "\n")
+le1 = (3 < 2) || (2 < 3)
+println("le1 = (3 < 2) || (2 < 3))")
+println("=> "* string(le1) * "\n")
 
 # Use booleans as numerical valued dtype
-output = false + false + true
-println("false + false + true")
-println("=> " * string(output) * "\n")
+ne1 = false + false + true
+println("ne1 = false + false + true")
+println("=> " * string(ne1) * "\n")
 
 # Use typeof() and see that the default float dtype is Float64
-output = r1 = 1.2
+r1 = 1.2
 println("r1 = 1.2")
-println("=> " * string(output))
-output = typeof(r1)
-println("typeof(r1)")
-println("=> " * string(output))
-output = r2::Float32 = 1.2
+println("=> " * string(r1))
+ty1 = typeof(r1)
+println("ty1 = typeof(r1)")
+println("=> " * string(ty1))
+r2::Float32 = 1.2
 println("r2::Float32 = 1.2")
-println("=> " * string(output))
-output = typeof(r2)
-println("typeof(r2)")
-println("=> " * string(output) * "\n")
+println("=> " * string(r2))
+ty2 = typeof(r2)
+println("ty2 = typeof(r2)")
+println("=> " * string(ty2) * "\n")
 
 # Use rational numbers, which are denoted by the dtype Rational
-output = q1 = 1//3
+q1 = 1//3
 println("q1 = 1//3")
-println("=> " * string(output))
-output = typeof(q1)
-println("typeof(q1)")
-println("=> " * string(output))
-output = q2 = 1//7
+println("=> " * string(q1))
+ty1 = typeof(q1)
+println("ty1 = typeof(q1)")
+println("=> " * string(ty1))
+q2 = 1//7
 println("q2 = 1//7")
 println("=> " * string(q2))
-output = typeof(q2)
-println("typeof(q2)")
-println("=> " * string(output))
-output = q3 = q1 + q2
+ty2 = typeof(q2)
+println("typeof(ty2)")
+println("=> " * string(ty2))
+q3 = q1 + q2
 println("q3 = q1 + q2")
-println("=> " * string(output))
-output = typeof(q3)
-println("typeof(q3)" * "\n")
+println("=> " * string(q3))
+ty3 = typeof(q3)
+println("ty3 = typeof(q3)")
+println("=> " * string(ty3) * "\n")
 
 # Use irrational numbers, which are denoted by the dtype Irrational{:symbol}
-output = ir1 = π
+ir1 = π
 println("ir1 = π")
-println("=> " * string(output))
-output = typeof(ir1)
+println("=> " * string(ir1))
+ty1 = typeof(ir1)
 println("typeof(ir1)")
-println("=> " * string(output))
-output = ir2 = ℯ
+println("=> " * string(ty1))
+ir2 = ℯ
 println("ir2 = ℯ")
-println("=> " * string(output))
-output = typeof(ir2)
+println("=> " * string(ir2))
+ty2 = typeof(ir2)
 println("typeof(ir2)")
-println("=> " * string(output) * "\n")
+println("=> " * string(ty2) * "\n")
 
 # Use round() to round an irrational number to five decimal places
-output = round(π, digits=5)
+r1 = round(π, digits=5)
 println("round(π, digits=5)")
-println("=> " * string(output) * "\n")
+println("=> " * string(r1) * "\n")
 
 # Use //, div(), and ÷
-output = z1::Int64 = 4
+z1::Int64 = 4
 println("z1::Int64 = 4")
-println("=> " * string(output))
-output = z2::Int64 = 2
+println("=> " * string(z1))
+z2::Int64 = 2
 println("z2::Int64 = 2")
-println("=> " * string(output))
-output = z2 / z1
-println("z2 / z1")
-println("=> " * string(output))
-output = z2 // z1
-println("z2 // z1")
-println("=> " * string(output))
-output = div(z2, z1)
-println("div(z2, z1)")
-println("=> " * string(output))
-output = z2 ÷ z1
-println("z2 ÷ z1")
-println("=> " * string(output))
-output = r3 = 5.6
-println("r3 = 5.6")
-println("=> " * string(output))
-output = r1 / r3
-println("r1 / r3")
-println("=> " * string(output))
+println("=> " * string(z2))
+r1 = z2 / z1
+println("r1 = z2 / z1")
+println("=> " * string(r1))
+ty1 = typeof(r1)
+println("ty1 = typeof(r1)")
+println("=> " * string(ty1))
+q1 = z2 // z1
+println("q1 = z2 // z1")
+println("=> " * string(q1))
+ty2 = typeof(q1)
+println("ty2 = typeof(q1)")
+println("=> " * string(ty2))
+z3 = div(z2, z1)
+println("z3 = div(z2, z1)")
+println("=> " * string(z3))
+ty3 = typeof(z3)
+println("ty3 = typeof(z3)")
+println("=> " * string(ty3))
+z4 = z2 ÷ z1
+println("z4 = z2 ÷ z1")
+println("=> " * string(z4))
+ty4 = typeof(z4)
+println("ty4 = typeof(z3)")
+println("=> " * string(ty4))
+r2 = 5.6
+println("r2 = 5.6")
+println("=> " * string(r2))
+r3 = r1 / r2
+println("r3 = r1 / r2")
+println("=> " * string(r3))
 try
-    println("r1 // r3")
-    r1 // r3
+    println("r1 // r2")
+    r1 // r2
 catch e
     s = sprint(showerror, e)
     s = first(split(s, "\n"; limit=2))
     println("=> " * s)
 end
-println("div(r1, r3)")
-output = div(r1, r3)
-println("=> " * string(output))
-println("r1 ÷ r3")
-output = r1 ÷ r3
-println("=> " * string(output) * "\n")
+z5 = div(r1, r2)
+println("z5 = div(r1, r2)")
+println("=> " * string(z5))
+ty5 = typeof(z5)
+println("ty5 = typeof(z5)")
+println("=> " * string(ty5))
+z6 = r1 ÷ r2
+println("z6 = r1 ÷ r2")
+println("=> " * string(z6))
+ty6 = typeof(z6)
+println("ty6 = typeof(z6)")
+println("=> " * string(ty6) * "\n")
 
 # Use a quote in strings
 s1 = "\", \""
 println("s1 = \"\\\", \\\"\"")
 println("=> " * string(s1) * "\n")
 
-# tabs
-println("Hello,\tWorld!")
+# Use a tab in strings
+s1 = "\t after"
+println("s1 = \"\\t after\"")
+println("=> " * string(s1) * "\n")
 
-# concatenation
-"Hello, " * "World!"
+# Use concatenation
+s1 = "Concat"
+println("s1 = \"Concat\"")
+s2 = "enation"
+println("s2 = \"enation\"")
+s3 = s1 * s2
+println("s3 = s1 * s2")
+println("=> " * string(s3) * "\n")
 
-# insertion
-s1 = "Hello"
-s2 = "World!"
-"$s1, $s2"
+# Use insertion
+s1 = "Insert"
+println("s1 = \"Insert\"")
+s2 = "ion"
+println("s2 = \"ion\"")
+s3 = "$s1$s2"
+println("s3 = \"$s1$s2\"")
+println("=> " * string(s3) * "\n")
 
-# math symbols are \alpha<tab>
-α
-'α'
-println('α')
-typeof('α')
+# Use a math character, which is done by, for example, \alpha<tab>
+mc1 = 'α'
+println("mc1 = 'α'")
+ty1 = typeof('α')
+println("ty1 = typeof('α')")
+println("=> " * string(ty1) * "\n")
 
 # emojis are \:dog:<tab>
 🐶
