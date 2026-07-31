@@ -2,8 +2,11 @@
 Highlights some of features found in the package ``Plot.jl``.
 =#
 
+# PAPER GOAL: Julia-LEAN reduction package for computing polynomial fibers in
+#             literature.
 # DISSERTATION GOAL: Julia-LEAN reduction package.
-# PAPER GOAL: Julia-LEAN reduction package for polynomial fibers.
+
+# Julia => LEAN => LEAN-Julia known papers => Publish
 
 # Plot: https://docs.juliaplots.org/stable/
 
